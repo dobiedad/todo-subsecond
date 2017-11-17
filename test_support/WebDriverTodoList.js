@@ -28,7 +28,8 @@ module.exports = class WebDriverTodoList {
   async getTodos() {
     return this._driver.executeScript(() =>
       [...document.querySelectorAll('[aria-label="Todos"] li label')].map(label => ({
-        text: label.innerText
+        text: label.innerText,
+        done: label.querySelector('input').checked
       }))
     )
   }

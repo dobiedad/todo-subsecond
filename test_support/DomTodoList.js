@@ -15,8 +15,15 @@ module.exports = class DomTodoList {
   }
 
   async getTodos() {
-    return [...this._domNode.querySelectorAll('[aria-label="Todos"] li label')].map(label => ({
-      text: label.innerText
+    return [...this._domNode.querySelectorAll('[aria-label="Todos"] li label')].map((label,i) => ({
+      text: label.innerText,
+      done: this._domNode.querySelectorAll('input[type="checkbox"]')[i].checked
     }))
+  }
+
+  async markAsDone(i) {
+    console.log('marking as done');
+    const input = this._domNode.querySelectorAll('input[type="checkbox"]')[i]
+    input.checked = true
   }
 }
