@@ -22,8 +22,6 @@ module.exports = class DomTodoList {
   }
 
   async markAsDone(i) {
-    console.log('marking as done');
-    const input = this._domNode.querySelectorAll('input[type="checkbox"]')[i]
-    input.checked = true
+    this._domNode.querySelectorAll('input[type="checkbox"]')[i].click()
   }
 }

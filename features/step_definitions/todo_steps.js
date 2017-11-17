@@ -22,7 +22,7 @@ When('I mark the {ordinal} todo as done', async function (index) {
 Then('the {ordinal} todo should be marked as done', async function (index) {
   const todoList = await this.outcomeTodoList()
   const todos = await todoList.getTodos()
-  console.log(todos[index],'waht');
+  console.log(todos[index],'todo in then step');
   assert.equal(todos[index].done, true)
 })
 
