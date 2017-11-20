@@ -35,8 +35,9 @@ module.exports = class WebDriverTodoList {
   }
 
   async markAsDone(index) {
-    const todoChecboxes = await this._driver.findElements(By.css('input[type="checkbox"]'))
-    await todoChecboxes[index].click()
+    const todoCheckboxes = await this._driver.findElements(By.css('input[type="checkbox"]'))
+
+    await todoCheckboxes[index].click()
   }
 
   async stop() {
